@@ -1,0 +1,39 @@
+#!/bin/bash
+
+#
+# Autostart
+# ==============================================================================
+
+xfsettingsd --disable-wm-check --daemon
+
+/usr/bin/light-locker --no-late-locking --lock-on-suspend --lock-on-lid &
+/usr/bin/thunar --daemon &
+/usr/bin/xfce4-panel --disable-wm-check &
+/usr/bin/xfce4-power-manager --daemon &
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+blueman-applet &
+nm-applet &
+
+picom -b --xrender-sync-fence &
+xwallpaper --zoom /usr/share/wallpapers/DarkestHour/contents/images/2560x1440.jpg &
+sxhkd &
+
+#
+# Bspwm
+# ==============================================================================
+
+bspc monitor -d I II III IV V VI VII VIII IX
+
+bspc config top_padding  26
+bspc config border_width 2
+bspc config window_gap   12
+bspc config split_ratio  0.5
+
+bspc config borderless_monocle    false
+bspc config gapless_monocle       false
+bspc config focus_follows_pointer true
+
+bspc rule --add "Matplotlib" state=floating
+
