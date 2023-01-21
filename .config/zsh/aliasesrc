@@ -4,6 +4,7 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles/.git --work-tree=$HOME'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto --group-directories-first'
 alias nmcli='nmcli --color yes'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME"/wget-hsts'
 
 man() {
 	LESS_TERMCAP_md=$'\e[01;31m' \
